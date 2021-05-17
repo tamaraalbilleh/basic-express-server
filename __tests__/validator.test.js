@@ -24,4 +24,5 @@ describe ('test query for name',()=>{
     expect(response.status).toBe (200);
     expect (response.body).toEqual ({ name : 'Tamara'});
   });
+  
 });
