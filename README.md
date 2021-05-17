@@ -3,10 +3,9 @@
 ## basic-express-server
 ### Author: Tamara Al-billeh
 
-* [deployment for main branch ](https://tamara-server-deploy-prod.herokuapp.com/) .
-* [deployment for dev branch  ](https://tamara-server-deploy-dev.herokuapp.com/) .
-* [submission PR](https://github.com/tamaraalbilleh/server-deployment-practice/pulls) .
-* [tests report](https://github.com/tamaraalbilleh/server-deployment-practice/actions) .
+* [deployment for main branch ](https://tamara-basic-express-server.herokuapp.com/) .
+* [submission PR](https://github.com/tamaraalbilleh/basic-express-server/pulls) .
+* [tests report](https://github.com/tamaraalbilleh/basic-express-server/actions) .
  
 ### Setup
 
@@ -22,18 +21,20 @@
 
     ```
 
-    'You are now on the Home Page , Hi ! 🥳 ';
+    'welcome to home page!';
 
     ```
-    - Endpoint: `/dev`
-  - Returns message
+- Endpoint: `/person?name=name provided`
+  - Returns an Object
 
     ```
 
-    'Server is visible ! 🤫';
+    {
+      "name": "name provided"
+    }
 
     ```
-     - Endpoint: `/err`
+- Endpoint: `/person`
   - Throws an error 500
   - Returns an Object
 
@@ -46,7 +47,7 @@
     }
 
     ```
-     - Endpoint: **anything else ..**
+- Endpoint: **anything else ..**
   - Returns an error 404
   - Returns an Object
 
