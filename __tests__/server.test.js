@@ -5,6 +5,7 @@ const supertest = require ('supertest');
 const request = supertest (server.app); 
 
 describe ('testing server functions and errors', ()=>{
+
   it ('should get the home page message', async ()=>{
     // arrange 
     let rout = '/';
@@ -14,6 +15,7 @@ describe ('testing server functions and errors', ()=>{
     expect(response.status).toBe (200);
     expect (response.text).toEqual ('welcome to home page!');
   });
+
   it ('should throw error 500', async ()=>{
     // arrange 
     let rout = '/person';
@@ -22,7 +24,8 @@ describe ('testing server functions and errors', ()=>{
     // assert
     expect(response.status).toBe (500);
   });
-  it ('should throw page not found error 404', async ()=>{
+
+  it ('should throw page not found error 404 on bad rout', async ()=>{
     // arrange 
     let rout = '/tama';
     // act
@@ -30,4 +33,14 @@ describe ('testing server functions and errors', ()=>{
     // assert
     expect (response.status).toBe(404);
   });
+
+  it('should throw page not found error 404 on bad method', async () => {
+    // arrange 
+    let query = 'Tamara';
+    // act
+    const response = await request.post (`/person?name=${query}`);
+    // assert
+    expect(response.status).toBe (404);
+  });
+
 });
